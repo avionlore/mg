@@ -1,20 +1,39 @@
+<script setup>
+import { computed } from 'vue';
+import Missions from '../objects/Missions.js';
+import MissionParameters from '@/objects/MissionParameters.js';
+import { rollDice } from '@/logics/rollDice.js';
+
+const computedMissionName = computed(() => {
+    return Missions.mission[Math.floor(Math.random() * Missions.mission.length)].missionName
+})
+
+const computedMissionParameter = computed(() => {
+    if (rollDice(3) == 1) {
+        return MissionParameters.missionParameter[0];
+    }
+    return MissionParameters.missionParameter[Math.floor(Math.random() * MissionParameters.missionParameter.length + 1)]
+})
+
+const computedMissionDifficulty = computed(() => {
+    let missionDifficultyAdded = 0;
+
+    missionDifficultyAdded += computedMissionParameter.value.parameterDifficulty;
+
+    return missionDifficultyAdded;
+})
+</script>
+<script>
+export default {
+    props: ['missionNumber'],
+}
+</script>
 <template>
 <div>
     <p>Mission # {{ missionNumber }}</p>
-    <p>{{ missionName }}</p>
+    <p>{{ computedMissionName }}</p>
+    <p>{{ computedMissionParameter.parameterName }}</p>
+    <p>{{ computedMissionDifficulty }}</p>
 </div>
 </template>
-<script>
-import missions from '../logics/Missions.js'
-
-export default {
-    props: ['missionNumber'],
-    data() {
-        return {
-            missionName: missions.mission[Math.floor(Math.random() * missions.mission.length)].missionName
-        }
-        
-    }
-}
-</script>
 <style></style>
