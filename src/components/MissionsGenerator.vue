@@ -1,6 +1,12 @@
 <template>
-    <h1>Missions Generator</h1>
+    <h1>Missions Generator v0.1 (2025-03-09)</h1>
     <form v-on:submit.prevent="generateMissions">
+        <select v-model="selected">
+            <option>L</option>
+            <option>LM</option>
+            <option>LMH</option>
+            <option>LMHA</option>
+        </select>
         <button type="submit">Generate</button>
     </form>
     <span v-if="missionCount>0" :key="componentKeyForReRendering">

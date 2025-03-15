@@ -12,7 +12,7 @@ const computedMissionParameter = computed(() => {
     if (rollDice(3) == 1) {
         return MissionParameters.missionParameter[0];
     }
-    return MissionParameters.missionParameter[Math.floor(Math.random() * MissionParameters.missionParameter.length + 1)]
+    return MissionParameters.missionParameter[Math.floor(Math.random() * MissionParameters.missionParameter.length)]
 })
 
 const computedMissionDifficulty = computed(() => {
