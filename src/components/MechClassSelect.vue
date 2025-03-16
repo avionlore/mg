@@ -14,7 +14,10 @@ export default {
 };
 </script>
 <template>
-  <select v-model="selected">
+  <select
+    v-model="selected"
+    @change="$emit('emitSelectedMissionClass', selected)"
+  >
     <option disabled value="">Please choose highest possible Mech class</option>
     <option
       v-for="mechClass in MechClasses"
