@@ -27,17 +27,26 @@ const computedMissionDifficulty = computed(() => {
 });
 </script>
 <script>
+import PlayerStart from "./PlayerStart.vue";
 export default {
   name: "MissionSingle",
   props: ["missionNumber"],
 };
 </script>
 <template>
-  <div>
+  <div class="mission">
     <p>Mission # {{ missionNumber }}</p>
     <p>{{ computedMissionName }}</p>
     <p>{{ computedMissionParameter.parameterName }}</p>
     <p>{{ computedMissionDifficulty }}</p>
+    <PlayerStart />
   </div>
 </template>
-<style></style>
+<style>
+.mission {
+  border: 1px solid #ccc;
+  padding: 10px;
+  margin-bottom: 10px;
+  background-color: rgba(128, 128, 128, 0.5);
+}
+</style>
