@@ -1,6 +1,6 @@
 <script setup>
 import { computed } from "vue";
-import Missions from "../objects/Missions.js";
+import Missions from "@/objects/Missions.js";
 import MissionParameters from "@/objects/MissionParameters.js";
 import { rollDice } from "@/logics/rollDice.js";
 
@@ -28,9 +28,10 @@ const computedMissionDifficulty = computed(() => {
 </script>
 <script>
 import PlayerStart from "./PlayerStart.vue";
+import BlipIntel from "./BlipIntel.vue";
 export default {
   name: "MissionSingle",
-  props: ["missionNumber"],
+  props: ["missionNumber", "highestPossibleMechClass"],
 };
 </script>
 <template>
@@ -40,6 +41,7 @@ export default {
     <p>{{ computedMissionParameter.parameterName }}</p>
     <p>{{ computedMissionDifficulty }}</p>
     <PlayerStart />
+    <BlipIntel :highestPossibleMechClass="highestPossibleMechClass" />
   </div>
 </template>
 <style>

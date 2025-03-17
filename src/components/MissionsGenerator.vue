@@ -2,13 +2,15 @@
   <h1>Missions Generator v0.1 (2025-03-16)</h1>
   <form v-on:submit.prevent="generateMissions">
     <MechClassSelect @emit-selected-mission-class="onSelectMissionClass" />
-    <button type="submit">Generate</button>
   </form>
   <p>Selected Mission Class: {{ selectedMissionClass }}</p>
   <span v-if="missionCount > 0" :key="componentKeyForReRendering">
     <p>Missions: {{ missionCount }}</p>
     <p v-for="n in parseInt(missionCount)" :key="n">
-      <MissionSingle :missionNumber="n" />
+      <MissionSingle
+        :missionNumber="n"
+        :highestPossibleMechClass="selectedMissionClass"
+      />
     </p>
   </span>
 </template>
@@ -42,6 +44,9 @@ export default {
     },
     onSelectMissionClass(value) {
       this.selectedMissionClass = value;
+      this.missionCount = rollDice(5);
+      componentKey.value += 1;
+      this.componentKeyForReRendering = componentKey.value;
     },
   },
 };
