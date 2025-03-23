@@ -28,15 +28,30 @@ export default {
   <button @click="showIntel = true">Show Intel</button>
   <div v-if="showIntel">
     <p>Max Mech Class ({{ highestPossibleMechClassObject.fullName }})</p>
-    <div v-for="blip in computedBlips" :key="blip">
+    <div class="blip" v-for="blip in computedBlips" :key="blip">
       <p>#{{ blip.blipNumber }}</p>
       <p>{{ blip.mechTier.fullName }}</p>
       <p>{{ blip.blipPosition }}</p>
-      <div v-for="mech in blip.mechsInBlip" :key="mech">
+      <div class="mech_blip" v-for="mech in blip.mechsInBlip" :key="mech">
         <p>{{mech.mech}}</p>
         <p>{{mech.position}}</p>
       </div>
       </div>
   </div>
 </template>
-<style></style>
+<style>
+  .blip {
+  border: 1px solid #999;
+  padding: 10px;
+  margin-bottom: 10px;
+  background-color: rgba(128, 128, 128, 0.5);
+  overflow: hidden;
+  }
+  .mech_blip {
+  border: 1px solid #555;
+  padding: 10px;
+  margin-bottom: 10px;
+  background-color: rgba(128, 128, 128, 0.5);
+  float: left;
+  }
+</style>

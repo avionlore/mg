@@ -46,7 +46,7 @@ function getMechs(mechClass)
   const mechs = Mechs;
 
   for(const [key, value] of Object.entries(mechs)) {
-    if(value.mechClass.mechTier == mechClass.mechTier)
+    if(value.mechClass.mechTier <= mechClass.mechTier)
       {
         let mechForBlip = new Mech();
         mechForBlip.mech = key;
