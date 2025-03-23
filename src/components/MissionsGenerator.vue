@@ -5,7 +5,7 @@
   </form>
   <p>Selected Mission Class: {{ selectedMissionClass }}</p>
   <span v-if="missionCount > 0" :key="componentKeyForReRendering">
-    <p>Missions: {{ missionCount }}</p>
+    <p>Missions: {{ missionCoupnt }}</p>
     <p v-for="n in parseInt(missionCount)" :key="n">
       <MissionSingle
         :missionNumber="n"

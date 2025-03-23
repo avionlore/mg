@@ -21,8 +21,8 @@ export default {
     <option disabled value="">Please choose highest possible Mech class</option>
     <option
       v-for="mechClass in MechClasses"
-      :key="mechClass.shortName"
-      :value="mechClass.shortName"
+      :key="mechClass.mechTier"
+      :value="mechClass.mechTier"
     >
       {{ mechClass.fullName }}
     </option>
