@@ -1,5 +1,6 @@
 <script setup>
 import MechClasses from "@/objects/MechClasses.js";
+import GridStart from "./GridStart.vue";
 import { defineProps, ref, computed } from "vue";
 import { generateBlips } from "@/logics/generateBlips.js";
 const props = defineProps(["highestPossibleMechClass"]);
@@ -42,8 +43,7 @@ export default {
       <button @click="showBlip(blip.blipNumber)">Show Blip #{{ blip.blipNumber }}</button>
       <div v-if="chosenBlipNumber == blip.blipNumber">      
         <p>#{{ blip.blipNumber }}</p>
-        <p>{{ blip.mechTier.fullName }}</p>
-        <p>{{ blip.blipPosition }}</p>
+        <GridStart :positionNumber="blip.blipPosition"/>
         <div class="mech_blip" v-for="mech in blip.mechsInBlip" :key="mech">
           <p>{{mech.mech}}</p>
           <p>{{mech.position}}</p>

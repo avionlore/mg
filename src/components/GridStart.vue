@@ -1,6 +1,7 @@
 <script setup>
-import { computed } from "vue";
-import { rollDice } from "@/logics/rollDice";
+import { computed, defineProps } from "vue";
+
+const props = defineProps(["positionNumber"]);
 
 let mapPositionArray = [
   [3, 6, 9],
@@ -32,8 +33,8 @@ function createPosGraphTable(position) {
   return graphTable;
 }
 
-const playerStartInGrid = computed(() => {
-  return createPosGraphTable(rollDice(9));
+const startInGrid = computed(() => {
+  return createPosGraphTable(props.positionNumber);
 });
 </script>
 <script>
@@ -42,7 +43,6 @@ export default {
 };
 </script>
 <template>
-  <p>Player Start:</p>
-  <p v-html="playerStartInGrid.outerHTML"></p>
+  <p v-html="startInGrid.outerHTML"></p>
 </template>
 <style></style>

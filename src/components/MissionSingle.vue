@@ -3,6 +3,7 @@ import { computed } from "vue";
 import Missions from "@/objects/Missions.js";
 import MissionParameters from "@/objects/MissionParameters.js";
 import { rollDice } from "@/logics/rollDice.js";
+import GridStart from "./GridStart.vue";
 
 const computedMissionName = computed(() => {
   return Missions.mission[Math.floor(Math.random() * Missions.mission.length)]
@@ -27,7 +28,6 @@ const computedMissionDifficulty = computed(() => {
 });
 </script>
 <script>
-import PlayerStart from "./PlayerStart.vue";
 import BlipIntel from "./BlipIntel.vue";
 export default {
   name: "MissionSingle",
@@ -40,7 +40,7 @@ export default {
     <p>{{ computedMissionName }}</p>
     <p>{{ computedMissionParameter.parameterName }}</p>
     <p>{{ computedMissionDifficulty }}</p>
-    <PlayerStart />
+    <p>Player Start:<GridStart :positionNumber="rollDice(9)"/></p>
     <BlipIntel :highestPossibleMechClass="highestPossibleMechClass" />
   </div>
 </template>
