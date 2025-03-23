@@ -32,6 +32,10 @@ export default {
       <p>#{{ blip.blipNumber }}</p>
       <p>{{ blip.mechTier.fullName }}</p>
       <p>{{ blip.blipPosition }}</p>
+      <div v-for="mech in blip.mechsInBlip" :key="mech">
+        <p>{{mech.mech}}</p>
+        <p>{{mech.position}}</p>
+      </div>
       </div>
   </div>
 </template>
