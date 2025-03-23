@@ -22,6 +22,16 @@ const computedBlips = computed(() => {
 <script>
 export default {
   name: "BlipIntel",
+  data() {
+    return {
+      chosenBlipNumber: null
+    };
+  },
+  methods: {
+    showBlip(blipNumber) {
+      this.chosenBlipNumber = blipNumber;
+    }
+  }
 };
 </script>
 <template>
@@ -29,14 +39,17 @@ export default {
   <div v-if="showIntel">
     <p>Max Mech Class ({{ highestPossibleMechClassObject.fullName }})</p>
     <div class="blip" v-for="blip in computedBlips" :key="blip">
-      <p>#{{ blip.blipNumber }}</p>
-      <p>{{ blip.mechTier.fullName }}</p>
-      <p>{{ blip.blipPosition }}</p>
-      <div class="mech_blip" v-for="mech in blip.mechsInBlip" :key="mech">
-        <p>{{mech.mech}}</p>
-        <p>{{mech.position}}</p>
+      <button @click="showBlip(blip.blipNumber)">Show Blip #{{ blip.blipNumber }}</button>
+      <div v-if="chosenBlipNumber == blip.blipNumber">      
+        <p>#{{ blip.blipNumber }}</p>
+        <p>{{ blip.mechTier.fullName }}</p>
+        <p>{{ blip.blipPosition }}</p>
+        <div class="mech_blip" v-for="mech in blip.mechsInBlip" :key="mech">
+          <p>{{mech.mech}}</p>
+          <p>{{mech.position}}</p>
+        </div>
       </div>
-      </div>
+    </div>
   </div>
 </template>
 <style>
