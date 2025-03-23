@@ -1,7 +1,8 @@
 <script setup>
 import MechClasses from "@/objects/MechClasses.js";
-import { defineProps } from "vue";
+import { defineProps, ref } from "vue";
 const props = defineProps(["highestPossibleMechClass"]);
+const showIntel = ref(false);
 
 const classKey = Object.keys(MechClasses).find(
   (key) => key == props.highestPossibleMechClass
@@ -14,6 +15,9 @@ export default {
 };
 </script>
 <template>
-  <p>Blips ({{ highestPossibleMechClassObject.fullName }})</p>
+  <button @click="showIntel = true">Show Intel</button>
+  <div v-if="showIntel">
+    <p>Blips ({{ highestPossibleMechClassObject.fullName }})</p>
+  </div>
 </template>
 <style></style>
