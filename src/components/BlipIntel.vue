@@ -1,6 +1,6 @@
 <script setup>
 import MechClasses from "@/objects/MechClasses.js";
-import { defineProps, ref } from "vue";
+import { defineProps, ref, computed } from "vue";
 import { generateBlips } from "@/logics/generateBlips.js";
 const props = defineProps(["highestPossibleMechClass"]);
 const showIntel = ref(false);
@@ -9,10 +9,15 @@ const classKey = Object.keys(MechClasses).find(
   (key) => key == props.highestPossibleMechClass
 );
 const highestPossibleMechClassObject = MechClasses[classKey];
-const chosenMechClasses = generateBlips(
+const computedBlips = computed(() => {
+  return generateBlips(
   2,
   highestPossibleMechClassObject.mechTier
 );
+}
+);
+
+
 </script>
 <script>
 export default {
@@ -23,7 +28,11 @@ export default {
   <button @click="showIntel = true">Show Intel</button>
   <div v-if="showIntel">
     <p>Max Mech Class ({{ highestPossibleMechClassObject.fullName }})</p>
-    <p v-for="mechTier in chosenMechClasses" :key="mechTier">{{ mechTier.fullName }}</p>
+    <div v-for="blip in computedBlips" :key="blip">
+      <p>#{{ blip.blipNumber }}</p>
+      <p>{{ blip.mechTier.fullName }}</p>
+      <p>{{ blip.blipPosition }}</p>
+      </div>
   </div>
 </template>
 <style></style>
