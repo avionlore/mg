@@ -18,6 +18,16 @@ const computedBlips = computed(() => {
 }
 );
 
+const computedDifficultyForAllBlips = computed(() => {
+  let difficulty = 0;
+  computedBlips.value.forEach(blip => {
+    blip.mechsInBlip.forEach(mech => {
+      difficulty += mech.mech.mechClass.baseDifficultyModifier;
+    })
+  });
+  return difficulty;
+});
+
 
 </script>
 <script>
@@ -39,6 +49,7 @@ export default {
   <button @click="showIntel = true">Show Intel</button>
   <div v-if="showIntel">
     <p>Max Mech Class ({{ highestPossibleMechClassObject.fullName }})</p>
+    <p>Added Difficulty: {{ computedDifficultyForAllBlips }}</p>
     <div class="blip" v-for="blip in computedBlips" :key="blip">
       <button @click="showBlip(blip.blipNumber)">Show Blip #{{ blip.blipNumber }}</button>
       <div v-if="chosenBlipNumber == blip.blipNumber">      

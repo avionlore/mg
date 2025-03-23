@@ -49,7 +49,7 @@ function getMechs(mechClass)
     if(value.mechClass.mechTier <= mechClass.mechTier)
       {
         let mechForBlip = new Mech();
-        mechForBlip.mech = key;
+        mechForBlip.mech = value;
         mechForBlip.position = rollDice(6);
         possibleMechs.push(mechForBlip);
       } 
