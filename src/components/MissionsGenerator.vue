@@ -3,7 +3,6 @@
   <form v-on:submit.prevent="generateMissions">
     <MechClassSelect @emit-selected-mission-class="onSelectMissionClass" />
   </form>
-  <p>Selected Mission Class: {{ selectedMissionClass }}</p>
   <span v-if="missionCount > 0" :key="componentKeyForReRendering">
     <p>Missions: {{ missionCoupnt }}</p>
     <p v-for="n in parseInt(missionCount)" :key="n">

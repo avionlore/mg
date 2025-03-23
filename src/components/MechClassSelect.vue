@@ -14,7 +14,7 @@ export default {
 };
 </script>
 <template>
-  <select
+  <select class="mech_select"
     v-model="selected"
     @change="$emit('emitSelectedMissionClass', selected)"
   >
@@ -28,4 +28,15 @@ export default {
     </option>
   </select>
 </template>
-<style></style>
+<style>
+.mech_select {
+  padding: 10px 20px;
+  font-size: 16px;
+  cursor: pointer;
+  background-color: #007bff;
+  color: #fff;
+  border: none;
+  border-radius: 5px;
+  margin-bottom: 20px;  
+}
+</style>
