@@ -23,7 +23,7 @@ export default {
   <button @click="showIntel = true">Show Intel</button>
   <div v-if="showIntel">
     <p>Max Mech Class ({{ highestPossibleMechClassObject.fullName }})</p>
-    <p>Chosen Mech Classes: {{ chosenMechClasses.toString() }}</p>
+    <p v-for="mechTier in chosenMechClasses" :key="mechTier">{{ mechTier.fullName }}</p>
   </div>
 </template>
 <style></style>
