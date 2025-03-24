@@ -45,7 +45,7 @@ function getMechs(mechClass)
 
   const mechs = Mechs;
 
-  for(const [key, value] of Object.entries(mechs)) {
+  for(const [, value] of Object.entries(mechs)) {
     if(value.mechClass.mechTier <= mechClass.mechTier)
       {
         let mechForBlip = new Mech();
@@ -55,5 +55,11 @@ function getMechs(mechClass)
       } 
   }
 
-  return possibleMechs;
+  let chosenMechs = [];
+  for(let i = 1; i < rollDice(5);i++)
+  {
+    chosenMechs.push(possibleMechs[Math.floor(Math.random() * possibleMechs.length)]);
+  }
+
+  return chosenMechs;
 }
