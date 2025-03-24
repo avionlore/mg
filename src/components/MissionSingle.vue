@@ -41,7 +41,7 @@ export default {
     <p>{{ computedMissionParameter.parameterName }}</p>
     <p>{{ computedMissionDifficulty }}</p>
     <p>Player Start:<GridStart :positionNumber="rollDice(9)"/></p>
-    <BlipIntel :highestPossibleMechClass="highestPossibleMechClass" />
+    <BlipIntel :highestPossibleMechClass="highestPossibleMechClass"/>
   </div>
 </template>
 <style>

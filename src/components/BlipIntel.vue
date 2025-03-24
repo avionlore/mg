@@ -41,7 +41,7 @@ export default {
   methods: {
     showBlip(blipNumber) {
       this.chosenBlipNumber = blipNumber;
-    }
+    },
   }
 };
 </script>
