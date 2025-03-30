@@ -1,10 +1,10 @@
 <template>
-  <h1>Missions Generator v0.1 (2025-03-24)</h1>
+  <h1>Missions Generator v0.1 (2025-03-30)</h1>
   <form v-on:submit.prevent="generateMissions">
     <MechClassSelect @emit-selected-mission-class="onSelectMissionClass" />
   </form>
   <span v-if="missionCount > 0" :key="componentKeyForReRendering">
-    <p>Missions: {{ missionCoupnt }}</p>
+    <p>Missions: {{ missionCount }}</p>
     <p v-for="n in parseInt(missionCount)" :key="n">
       <MissionSingle
         :missionNumber="n"

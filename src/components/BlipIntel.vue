@@ -3,7 +3,10 @@ import MechClasses from "@/objects/MechClasses.js";
 import GridStart from "./GridStart.vue";
 import { defineProps, ref, computed } from "vue";
 import { generateBlips } from "@/logics/generateBlips.js";
-const props = defineProps(["highestPossibleMechClass"]);
+import { useDifficultyStore } from "@/stores/Difficulty";
+
+const difficultyStore = useDifficultyStore();
+const props = defineProps(["highestPossibleMechClass","missionNumber"]);
 const showIntel = ref(false);
 
 const classKey = Object.keys(MechClasses).find(
@@ -25,6 +28,7 @@ const computedDifficultyForAllBlips = computed(() => {
       difficulty += mech.mech.mechClass.baseDifficultyModifier;
     })
   });
+  difficultyStore.add(props.missionNumber, difficulty);
   return difficulty;
 });
 
@@ -47,16 +51,17 @@ export default {
 </script>
 <template>
   <button @click="showIntel = true">Show Intel</button>
-  <div v-if="showIntel">
+  <div v-show="showIntel">
     <p>Max Mech Class ({{ highestPossibleMechClassObject.fullName }})</p>
     <p>Added Difficulty: {{ computedDifficultyForAllBlips }}</p>
     <div class="blip" v-for="blip in computedBlips" :key="blip">
       <button @click="showBlip(blip.blipNumber)">Show Blip #{{ blip.blipNumber }}</button>
-      <div v-if="chosenBlipNumber == blip.blipNumber">      
+      <div v-show="chosenBlipNumber == blip.blipNumber">      
         <p>#{{ blip.blipNumber }}</p>
         <GridStart :positionNumber="blip.blipPosition"/>
         <div class="mech_blip" v-for="mech in blip.mechsInBlip" :key="mech">
           <p>{{mech.mech.fullName}}</p>
+          <p>{{mech.mech.mechClass.fullName}}</p>
           <p>{{mech.position}}</p>
         </div>
       </div>
