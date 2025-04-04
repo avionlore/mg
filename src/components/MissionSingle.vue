@@ -1,41 +1,39 @@
 <script setup>
 import { computed, defineProps } from "vue";
-import Missions from "@/objects/Missions.js";
-import MissionParameters from "@/objects/MissionParameters.js";
+import Maps from "@/objects/Maps.js";
+import MapParameters from "@/objects/MapParameters.js";
 import { rollDice } from "@/logics/rollDice.js";
 import GridStart from "./GridStart.vue";
 import { useDifficultyStore } from "@/stores/Difficulty";
 
 const props = defineProps({
   missionNumber: Number,
-  highestPossibleMechClass: Number
+  highestPossibleMechClass: Number,
 });
 
 const difficultyFromStore = useDifficultyStore();
 
 const computedMissionMap = computed(() => {
-  return Missions.mission[Math.floor(Math.random() * Missions.mission.length)]
-    .missionName;
+  return Maps.map[Math.floor(Math.random() * Maps.map.length)].mapName;
 });
 
-const computedMissionParameter = computed(() => {
+const computedMapParameter = computed(() => {
   if (rollDice(3) == 1) {
-    return MissionParameters.missionParameter[0];
+    return MapParameters.mapParameter[0];
   }
-  return MissionParameters.missionParameter[
-    Math.floor(Math.random() * MissionParameters.missionParameter.length)
+  return MapParameters.mapParameter[
+    Math.floor(Math.random() * MapParameters.mapParameter.length)
   ];
 });
 
 const computedMissionDifficulty = computed(() => {
   let missionDifficultyAdded = 0;
 
-  missionDifficultyAdded += computedMissionParameter.value.parameterDifficulty;
+  missionDifficultyAdded += computedMapParameter.value.parameterDifficulty;
   missionDifficultyAdded += difficultyFromStore.get(props.missionNumber);
 
   return missionDifficultyAdded;
 });
-
 </script>
 <script>
 import BlipIntel from "./BlipIntel.vue";
@@ -47,10 +45,13 @@ export default {
   <div class="mission">
     <p>Mission # {{ props.missionNumber }}</p>
     <p>Mission Map: {{ computedMissionMap }}</p>
-    <p>Mission Parameter: {{ computedMissionParameter.parameterName }}</p>
+    <p>Mission Parameter: {{ computedMapParameter.parameterName }}</p>
     <p>Difficulty: {{ computedMissionDifficulty }}</p>
-    <p>Player Start:<GridStart :positionNumber="rollDice(9)"/></p>
-    <BlipIntel :highestPossibleMechClass="props.highestPossibleMechClass" :missionNumber="props.missionNumber"/>
+    <p>Player Start:<GridStart :positionNumber="rollDice(9)" /></p>
+    <BlipIntel
+      :highestPossibleMechClass="props.highestPossibleMechClass"
+      :missionNumber="props.missionNumber"
+    />
   </div>
 </template>
 <style>
