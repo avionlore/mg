@@ -5,6 +5,7 @@ import MapParameters from "@/objects/MapParameters.js";
 import { rollDice } from "@/logics/rollDice.js";
 import GridStart from "./GridStart.vue";
 import { useDifficultyStore } from "@/stores/Difficulty";
+import Missions from "@/objects/missions/Missions";
 
 const props = defineProps({
   missionNumber: Number,
@@ -12,6 +13,12 @@ const props = defineProps({
 });
 
 const difficultyFromStore = useDifficultyStore();
+
+const computedChosenMission = computed(() => {
+  let missionKeys = Object.keys(Missions);
+
+  return Missions[missionKeys[Math.floor(Math.random() * missionKeys.length)]];
+});
 
 const computedMissionMap = computed(() => {
   return Maps.map[Math.floor(Math.random() * Maps.map.length)].mapName;
@@ -51,7 +58,7 @@ export default {
     <p>Mission # {{ props.missionNumber }}</p>
     <p>Mission Map: {{ computedMissionMap }}</p>
     <p>Map Parameter: {{ computedMapParameter.parameterName }}</p>
-    <p>Mission Type: <MissionType /></p>
+    <p>Mission Type: <MissionType :chosenMission="computedChosenMission" /></p>
     <p>Difficulty: {{ computedMissionDifficulty }}</p>
     <p>Player Start:<GridStart :positionNumber="rollDice(9)" /></p>
     <BlipIntel

@@ -1,11 +1,13 @@
 <script setup>
-import { computed, ref } from "vue";
+import { computed, ref, defineProps } from "vue";
 import Missions from "@/objects/missions/Missions";
 
-const computedChosenMission = computed(() => {
-  let missionKeys = Object.keys(Missions);
+const props = defineProps({
+  chosenMission: Missions,
+});
 
-  return Missions[missionKeys[Math.floor(Math.random() * missionKeys.length)]];
+const computedChosenMission = computed(() => {
+  return props.chosenMission;
 });
 
 const showDescription = ref(false);
