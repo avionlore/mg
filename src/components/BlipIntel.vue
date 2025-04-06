@@ -28,6 +28,18 @@ const computedNumberOfBlipsForThisMission = computed(() => {
   return numberOfBlips;
 });
 
+const computedNumberOfMechs = computed(() => {
+  let numberOfMechs = 1;
+  for (const [key, value] of Object.entries(
+    props.chosenMission.missionParameters
+  )) {
+    if (value.parameter == MissionParameters.MaxMechsOnBlip) {
+      numberOfMechs = rollDice(value.value);
+    }
+  }
+  return numberOfMechs;
+});
+
 const showIntel = ref(false);
 
 const classKey = Object.keys(MechClasses).find(
@@ -37,7 +49,8 @@ const highestPossibleMechClassObject = MechClasses[classKey];
 const computedBlips = computed(() => {
   return generateBlips(
     computedNumberOfBlipsForThisMission.value,
-    highestPossibleMechClassObject.mechTier
+    highestPossibleMechClassObject.mechTier,
+    computedNumberOfMechs.value
   );
 });
 
