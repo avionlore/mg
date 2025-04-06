@@ -39,7 +39,7 @@ const startInGrid = computed(() => {
 </script>
 <script>
 export default {
-  data() {},
+  name: "GridStart",
 };
 </script>
 <template>
