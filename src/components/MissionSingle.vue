@@ -64,6 +64,7 @@ export default {
     <BlipIntel
       :highestPossibleMechClass="props.highestPossibleMechClass"
       :missionNumber="props.missionNumber"
+      :chosenMission="computedChosenMission"
     />
   </div>
 </template>
