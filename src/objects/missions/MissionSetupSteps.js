@@ -1,14 +1,14 @@
 export default {
   DiceOutBlips: {
-    stepDescription: "Dice out Blips",
+    description: "Dice out Blips",
   },
   PlaceBlipsOnMap: {
-    stepDescription: "Place Blips on map",
+    description: "Place Blips on map",
   },
   PlacePlayerStart: {
-    stepDescription: "Place Player start on map",
+    description: "Place Player start on map",
   },
   DiceOutEscortStartingPosition: {
-    stepDescription: "Dice out escort starting position",
+    description: "Dice out escort starting position",
   },
 };

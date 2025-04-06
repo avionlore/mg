@@ -1,21 +1,26 @@
 export default {
+  NoConstraints: {
+    description: "No constraints for this mission",
+  },
   RevealAllBlips: {
-    constraintDescription: "Reveal all Blips",
+    description: "Reveal all Blips",
   },
   DestroyAllEnemies: {
-    constraintDescription: "Destroy all enemies",
+    description: "Destroy all enemies",
   },
   EnemyMechsTargetEscortFirst: {
-    constraintDescription: "All enemy mechs target escort first",
+    description: "All enemy mechs target escort first",
   },
   EnemyMechsAreAlwaysAggressive: {
-    constraintDescription: "Enemy mechs are always aggressive",
+    description: "Enemy mechs are always aggressive",
   },
   PirateCanSpawn: {
-    constraintDescription:
-      "Every round (1:6) a pirate from current mech pool can spawn",
+    description: "Every round (1:6) a pirate from current mech pool can spawn",
   },
   PlayerMustSpawnInCorner: {
-    constraintDescription: "Player start must be in a corner",
+    description: "Player start must be in a corner",
+  },
+  EnemyMechsTargetObjectsFirst: {
+    description: "Enemy mechs always target objects first",
   },
 };

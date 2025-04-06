@@ -1,23 +1,23 @@
 export default {
   RevealAllBlips: {
-    goalDescription: "Reveal all Blips",
+    description: "Reveal all Blips",
   },
   DestroyAllEnemies: {
-    goalDescription: "Destroy all enemies",
+    description: "Destroy all enemies",
   },
   DestroyObjects: {
-    goalDescription: "Destroy all objects",
+    description: "Destroy all objects",
   },
   RetreatToShip: {
-    goalDescription: "Retreat to ship",
+    description: "Retreat to ship",
   },
   DestroyTargetMech: {
-    goalDescription: "Destroy target mech",
+    description: "Destroy target mech",
   },
   DefendObjects: {
-    goalDescription: "Defend objects",
+    description: "Defend objects",
   },
   ReachCorner: {
-    goalDescription: "All mechs must reach opposite corner",
+    description: "All mechs must reach opposite corner",
   },
 };

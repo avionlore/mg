@@ -25,4 +25,26 @@ export default {
       2: MissionConstraints.DestroyAllEnemies,
     },
   },
+  Sabotage: {
+    longName: "Sabotage",
+    missionDescription: "Destroy target objects",
+    missionSetupSteps: {
+      1: MissionSetupSteps.DiceOutBlips,
+      2: MissionSetupSteps.PlaceBlipsOnMap,
+      3: MissionSetupSteps.PlacePlayerStart,
+    },
+    missionGoals: {
+      1: MissionGoals.DestroyObjects,
+      2: MissionGoals.RetreatToShip,
+    },
+    missionParameters: {
+      1: { parameter: MissionParameters.MaxBlips, value: 5 },
+      2: { parameter: MissionParameters.MaxMechsOnBlip, value: 3 },
+      3: { parameter: MissionParameters.MinObjectsOnMap, value: 1 },
+      4: { parameter: MissionParameters.MaxObjectsOnMap, value: 2 },
+    },
+    missionConstraints: {
+      1: MissionConstraints.NoConstraints,
+    },
+  },
 };

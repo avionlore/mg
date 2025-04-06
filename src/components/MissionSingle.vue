@@ -37,14 +37,20 @@ const computedMissionDifficulty = computed(() => {
 </script>
 <script>
 import BlipIntel from "./BlipIntel.vue";
+import MissionType from "./MissionType.vue";
 export default {
   name: "MissionSingle",
+  components: {
+    BlipIntel,
+    MissionType,
+  },
 };
 </script>
 <template>
   <div class="mission">
     <p>Mission # {{ props.missionNumber }}</p>
     <p>Mission Map: {{ computedMissionMap }}</p>
+    <p>Mission Type: <MissionType /></p>
     <p>Mission Parameter: {{ computedMapParameter.parameterName }}</p>
     <p>Difficulty: {{ computedMissionDifficulty }}</p>
     <p>Player Start:<GridStart :positionNumber="rollDice(9)" /></p>
