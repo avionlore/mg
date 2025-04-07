@@ -2,12 +2,6 @@ export default {
   NoConstraints: {
     description: "No constraints for this mission",
   },
-  RevealAllBlips: {
-    description: "Reveal all Blips",
-  },
-  DestroyAllEnemies: {
-    description: "Destroy all enemies",
-  },
   EnemyMechsTargetEscortFirst: {
     description: "All enemy mechs target escort first",
   },

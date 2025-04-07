@@ -8,6 +8,9 @@ export default {
   MaxMechsOnBlip: {
     description: "Max Mechs on Blip",
   },
+  MinMechsOnBlip: {
+    description: "Max Mechs on Blip",
+  },
   MaxObjectsOnMap: {
     description: "Max Objects on Map",
   },

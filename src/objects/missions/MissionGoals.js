@@ -17,6 +17,9 @@ export default {
   DefendObjects: {
     description: "Defend objects",
   },
+  DefendEscort: {
+    description: "Defend escort",
+  },
   ReachCorner: {
     description: "All mechs must reach opposite corner",
   },
