@@ -23,4 +23,7 @@ export default {
   ReachCorner: {
     description: "All mechs must reach opposite corner",
   },
+  CaptureAllObjects: {
+    description: "Capture all objects",
+  },
 };

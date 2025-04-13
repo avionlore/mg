@@ -130,4 +130,53 @@ export default {
       1: MissionConstraints.EnemyMechsTargetEscortFirst,
     },
   },
+  Defense: {
+    longName: "Defense Mission",
+    missionDescription: "Defend object for a certain amount of time",
+    missionSetupSteps: {
+      1: MissionSetupSteps.DiceOutObjectNumber,
+      2: MissionSetupSteps.PlaceObjectsOnMap,
+      3: MissionSetupSteps.PlacePlayerStart,
+    },
+    missionGoals: {
+      1: MissionGoals.DefendObjects,
+      2: MissionGoals.RetreatToShip,
+    },
+    missionParameters: {
+      1: { parameter: MissionParameters.MaxObjectsOnMap, value: 4 },
+      2: { parameter: MissionParameters.MinObjectsOnMap, value: 1 },
+      3: { parameter: MissionParameters.DamagePerShotOnObject, value: 25 },
+      4: { parameter: MissionParameters.NumberOfRoundsToSurvive, value: 10 },
+      5: { parameter: MissionParameters.ChanceOfSpawningEnemyMech, value: 50 },
+    },
+    missionConstraints: {
+      1: MissionConstraints.EnemyMechsTargetObjectsFirst,
+      2: MissionConstraints.EnemyMechsAreAlwaysAggressive,
+    },
+  },
+  Capture: {
+    longName: "Capture Object Mission",
+    missionDescription: "Capture object for a certain amount of time",
+    missionSetupSteps: {
+      1: MissionSetupSteps.DiceOutObjectNumber,
+      2: MissionSetupSteps.PlaceObjectsOnMap,
+      3: MissionSetupSteps.PlacePlayerStart,
+    },
+    missionGoals: {
+      1: MissionGoals.CaptureAllObjects,
+      2: MissionGoals.RetreatToShip,
+    },
+    missionParameters: {
+      1: { parameter: MissionParameters.MaxObjectsOnMap, value: 3 },
+      2: { parameter: MissionParameters.MinObjectsOnMap, value: 1 },
+      3: { parameter: MissionParameters.DamagePerShotOnObject, value: 25 },
+      4: { parameter: MissionParameters.ChanceOfSpawningEnemyMech, value: 33 },
+      5: { parameter: MissionParameters.RoundsInRangeToCapture, value: 3 },
+      6: { parameter: MissionParameters.RangeToCapture, value: 2 },
+    },
+    missionConstraints: {
+      1: MissionConstraints.EnemyMechsTargetObjectsFirst,
+      2: MissionConstraints.EnemyMechsAreAlwaysAggressive,
+    },
+  },
 };

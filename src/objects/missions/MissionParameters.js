@@ -35,10 +35,13 @@ export default {
   NumberOfRoundsToSurvive: {
     description: "Survive number of rounds",
   },
-  RangeToTakeOver: {
-    description: "Range to take over",
+  RangeToCapture: {
+    description: "Range to capture",
   },
-  RoundsInRangeToTakeOver: {
-    description: "Rounds in range to take over",
+  RoundsInRangeToCapture: {
+    description: "Rounds in range to capture",
+  },
+  ChanceOfSpawningEnemyMech: {
+    description: "Every round an enemy mech can spawn at a random position",
   },
 };

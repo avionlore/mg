@@ -11,4 +11,10 @@ export default {
   DiceOutEscortStartingPosition: {
     description: "Dice out escort starting position",
   },
+  DiceOutObjectNumber: {
+    description: "Dice out number of objects",
+  },
+  PlaceObjectsOnMap: {
+    description: "Place objects on map",
+  },
 };
