@@ -39,6 +39,10 @@ const computedMissionDifficulty = computed(() => {
   missionDifficultyAdded += computedMapParameter.value.parameterDifficulty;
   missionDifficultyAdded += difficultyFromStore.get(props.missionNumber);
 
+  if (missionDifficultyAdded <= 5) {
+    missionDifficultyAdded = rollDice(100) + 10;
+  }
+
   return missionDifficultyAdded;
 });
 </script>
