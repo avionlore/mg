@@ -89,9 +89,9 @@ export default {
       <button @click="showBlip(blip.blipNumber)">
         Show Blip #{{ blip.blipNumber }}
       </button>
+      <GridStart :positionNumber="blip.blipPosition" />
       <div v-show="chosenBlipNumber == blip.blipNumber">
         <p>#{{ blip.blipNumber }}</p>
-        <GridStart :positionNumber="blip.blipPosition" />
         <div class="mech_blip" v-for="mech in blip.mechsInBlip" :key="mech">
           <p>{{ mech.mech.fullName }}</p>
           <p>{{ mech.mech.mechClass.fullName }}</p>

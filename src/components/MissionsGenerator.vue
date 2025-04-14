@@ -1,5 +1,5 @@
 <template>
-  <h1>Missions Generator v0.1 (2025-04-13)</h1>
+  <h1>Missions Generator v0.2 (2025-04-14)</h1>
   <form v-on:submit.prevent="generateMissions">
     <MechClassSelect @emit-selected-mission-class="onSelectMissionClass" />
   </form>
@@ -37,13 +37,13 @@ export default {
   },
   methods: {
     generateMissions: function () {
-      this.missionCount = rollDice(5);
+      this.missionCount = rollDice(15);
       componentKey.value += 1;
       this.componentKeyForReRendering = componentKey.value;
     },
     onSelectMissionClass(value) {
       this.selectedMissionClass = value;
-      this.missionCount = rollDice(5);
+      this.missionCount = rollDice(15);
       componentKey.value += 1;
       this.componentKeyForReRendering = componentKey.value;
     },
