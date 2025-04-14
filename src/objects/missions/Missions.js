@@ -18,7 +18,7 @@ export default {
     },
     missionParameters: {
       1: { parameter: MissionParameters.MaxBlips, value: 5 },
-      2: { parameter: MissionParameters.MaxMechsOnBlip, value: 3 },
+      2: { parameter: MissionParameters.MaxMechsOnBlip, value: 6 },
     },
     missionConstraints: {
       1: MissionConstraints.NoConstraints,
@@ -81,7 +81,7 @@ export default {
     },
     missionParameters: {
       1: { parameter: MissionParameters.MaxBlips, value: 3 },
-      2: { parameter: MissionParameters.MaxMechsOnBlip, value: 3 },
+      2: { parameter: MissionParameters.MaxMechsOnBlip, value: 5 },
     },
     missionConstraints: {
       1: MissionConstraints.NoConstraints,
@@ -101,7 +101,7 @@ export default {
     },
     missionParameters: {
       1: { parameter: MissionParameters.MaxBlips, value: 5 },
-      2: { parameter: MissionParameters.MaxMechsOnBlip, value: 3 },
+      2: { parameter: MissionParameters.MaxMechsOnBlip, value: 4 },
     },
     missionConstraints: {
       1: MissionConstraints.NoConstraints,

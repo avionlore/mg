@@ -55,7 +55,7 @@ function getMechs(mechClass, mechCount) {
   }
 
   let chosenMechs = [];
-  for (let i = 1; i < mechCount; i++) {
+  for (let i = 0; i < mechCount; i++) {
     chosenMechs.push(
       possibleMechs[Math.floor(Math.random() * possibleMechs.length)]
     );
