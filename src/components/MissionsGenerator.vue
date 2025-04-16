@@ -1,5 +1,5 @@
 <template>
-  <h1>Missions Generator v0.2 (2025-04-14)</h1>
+  <h1>Missions Generator v0.3 (2025-04-16)</h1>
   <form v-on:submit.prevent="generateMissions">
     <MechClassSelect @emit-selected-mission-class="onSelectMissionClass" />
   </form>

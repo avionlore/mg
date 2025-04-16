@@ -17,7 +17,7 @@ export function generateBlips(maxBlips, mechClassMaxTier, mechCount) {
       mechClassesForMission[
         Math.floor(Math.random() * mechClassesForMission.length)
       ];
-    blip.mechsInBlip = getMechs(blip.mechTier, mechCount);
+    blip.mechsInBlip = getMechs(blip.mechTier, mechCount, mechClassMaxTier);
     blips.push(blip);
   }
 
@@ -40,7 +40,7 @@ function getMechClassesForMission(mechClassMaxTier) {
   return chosenMechClasses;
 }
 
-function getMechs(mechClass, mechCount) {
+function getMechs(mechClass, mechCount, mechClassMaxTier) {
   let possibleMechs = [];
 
   const mechs = Mechs;
@@ -54,8 +54,26 @@ function getMechs(mechClass, mechCount) {
     }
   }
 
+  let possibleMechsFromHighestTier = [];
+  for (const [, value] of Object.entries(mechs)) {
+    if (value.mechClass.mechTier == mechClassMaxTier) {
+      let mechForBlip = new Mech();
+      mechForBlip.mech = value;
+      mechForBlip.position = rollDice(6);
+      possibleMechsFromHighestTier.push(mechForBlip);
+    }
+  }
+  console.log(possibleMechsFromHighestTier);
   let chosenMechs = [];
   for (let i = 0; i < mechCount; i++) {
+    if (rollDice(2) == 1) {
+      chosenMechs.push(
+        possibleMechsFromHighestTier[
+          Math.floor(Math.random() * possibleMechsFromHighestTier.length)
+        ]
+      );
+      continue;
+    }
     chosenMechs.push(
       possibleMechs[Math.floor(Math.random() * possibleMechs.length)]
     );
