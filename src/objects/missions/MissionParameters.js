@@ -44,4 +44,7 @@ export default {
   ChanceOfSpawningEnemyMech: {
     description: "Every round an enemy mech can spawn at a random position",
   },
+  NumberOfTargetMechs: {
+    description: "How many target mechs are present",
+  },
 };

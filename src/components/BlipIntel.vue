@@ -69,6 +69,7 @@ export default {
           <p>{{ mech.mech.fullName }}</p>
           <p>{{ mech.mech.mechClass.fullName }}</p>
           <p>{{ mech.position }}</p>
+          <p v-if="mech.target == 1">TARGET</p>
         </div>
       </div>
     </div>

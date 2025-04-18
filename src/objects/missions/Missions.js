@@ -102,6 +102,7 @@ export default {
     missionParameters: {
       1: { parameter: MissionParameters.MaxBlips, value: 5 },
       2: { parameter: MissionParameters.MaxMechsOnBlip, value: 4 },
+      3: { parameter: MissionParameters.NumberOfTargetMechs, value: 1 },
     },
     missionConstraints: {
       1: MissionConstraints.NoConstraints,

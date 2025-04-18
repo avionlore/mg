@@ -8,6 +8,7 @@ import { Mech } from "@/objects/Mech";
 export function generateBlips(mission, mechClassMaxTier) {
   let maxBlips = getNumberOfBlipsFromMission(mission);
   let mechCount = getNumberOfMechsForMission(mission);
+  let numberOfTargetMechs = getNumberOfTargetMechs(mission);
 
   let blips = [];
   let mechClassesForMission = getMechClassesForMission(mechClassMaxTier);
@@ -22,11 +23,25 @@ export function generateBlips(mission, mechClassMaxTier) {
       mechClassesForMission[
         Math.floor(Math.random() * mechClassesForMission.length)
       ];
-    blip.mechsInBlip = getMechs(blip.mechTier, mechCount, mechClassMaxTier);
+    blip.mechsInBlip = getMechs(
+      blip.mechTier,
+      mechCount,
+      mechClassMaxTier,
+      numberOfTargetMechs
+    );
     blips.push(blip);
   }
 
   return blips;
+}
+
+function getNumberOfTargetMechs(mission) {
+  for (const [, value] of Object.entries(mission.missionParameters)) {
+    if (value.parameter == MissionParameters.NumberOfTargetMechs) {
+      return value.value;
+    }
+  }
+  return 0;
 }
 
 function getNumberOfMechsForMission(mission) {
@@ -71,7 +86,7 @@ function getMechClassesForMission(mechClassMaxTier) {
   return chosenMechClasses;
 }
 
-function getMechs(mechClass, mechCount, mechClassMaxTier) {
+function getMechs(mechClass, mechCount, mechClassMaxTier, numberOfTargetMechs) {
   let possibleMechs = [];
 
   const mechs = Mechs;
@@ -108,6 +123,15 @@ function getMechs(mechClass, mechCount, mechClassMaxTier) {
     chosenMechs.push(
       possibleMechs[Math.floor(Math.random() * possibleMechs.length)]
     );
+  }
+
+  if (numberOfTargetMechs > 0 && chosenMechs.length > 0) {
+    for (const [, mech] of chosenMechs.entries()) {
+      if (rollDice(2) == 1) {
+        mech.target = 1;
+        break;
+      }
+    }
   }
 
   return chosenMechs;
