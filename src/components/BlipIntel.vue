@@ -2,11 +2,9 @@
 import MechClasses from "@/objects/MechClasses.js";
 import GridStart from "./GridStart.vue";
 import Missions from "@/objects/missions/Missions";
-import MissionParameters from "@/objects/missions/MissionParameters";
 import { defineProps, ref, computed } from "vue";
 import { generateBlips } from "@/logics/generateBlips.js";
 import { useDifficultyStore } from "@/stores/Difficulty";
-import { rollDice } from "@/logics/rollDice";
 
 const difficultyStore = useDifficultyStore();
 
@@ -14,30 +12,6 @@ const props = defineProps({
   chosenMission: Missions,
   highestPossibleMechClass: Number,
   missionNumber: Number,
-});
-
-const computedNumberOfBlipsForThisMission = computed(() => {
-  let numberOfBlips = 2;
-  for (const [key, value] of Object.entries(
-    props.chosenMission.missionParameters
-  )) {
-    if (value.parameter == MissionParameters.MaxBlips) {
-      numberOfBlips = rollDice(value.value);
-    }
-  }
-  return numberOfBlips;
-});
-
-const computedNumberOfMechs = computed(() => {
-  let numberOfMechs = 1;
-  for (const [key, value] of Object.entries(
-    props.chosenMission.missionParameters
-  )) {
-    if (value.parameter == MissionParameters.MaxMechsOnBlip) {
-      numberOfMechs = rollDice(value.value);
-    }
-  }
-  return numberOfMechs;
 });
 
 const showIntel = ref(false);
@@ -48,9 +22,8 @@ const classKey = Object.keys(MechClasses).find(
 const highestPossibleMechClassObject = MechClasses[classKey];
 const computedBlips = computed(() => {
   return generateBlips(
-    computedNumberOfBlipsForThisMission.value,
-    highestPossibleMechClassObject.mechTier,
-    computedNumberOfMechs.value
+    props.chosenMission,
+    highestPossibleMechClassObject.mechTier
   );
 });
 

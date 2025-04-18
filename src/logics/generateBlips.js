@@ -1,9 +1,14 @@
 import { rollDice } from "@/logics/rollDice.js";
 import MechClasses from "@/objects/MechClasses";
 import Mechs from "@/objects/Mechs";
+import MissionParameters from "@/objects/missions/MissionParameters";
 import { Blip } from "@/objects/Blip";
 import { Mech } from "@/objects/Mech";
-export function generateBlips(maxBlips, mechClassMaxTier, mechCount) {
+
+export function generateBlips(mission, mechClassMaxTier) {
+  let maxBlips = getNumberOfBlipsFromMission(mission);
+  let mechCount = getNumberOfMechsForMission(mission);
+
   let blips = [];
   let mechClassesForMission = getMechClassesForMission(mechClassMaxTier);
 
@@ -22,6 +27,26 @@ export function generateBlips(maxBlips, mechClassMaxTier, mechCount) {
   }
 
   return blips;
+}
+
+function getNumberOfMechsForMission(mission) {
+  let numberOfMechs = 1;
+  for (const [, value] of Object.entries(mission.missionParameters)) {
+    if (value.parameter == MissionParameters.MaxMechsOnBlip) {
+      numberOfMechs = rollDice(value.value);
+    }
+  }
+  return numberOfMechs;
+}
+
+function getNumberOfBlipsFromMission(mission) {
+  let numberOfBlips = 2;
+  for (const [, value] of Object.entries(mission.missionParameters)) {
+    if (value.parameter == MissionParameters.MaxBlips) {
+      numberOfBlips = rollDice(value.value);
+    }
+  }
+  return numberOfBlips;
 }
 
 function getMechClassesForMission(mechClassMaxTier) {
