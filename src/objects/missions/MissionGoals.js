@@ -2,6 +2,9 @@ export default {
   RevealAllBlips: {
     description: "Reveal all Blips",
   },
+  RevealAtLeastOneBlips: {
+    description: "Reveal at least one Blip",
+  },
   DestroyAllEnemies: {
     description: "Destroy all enemies",
   },

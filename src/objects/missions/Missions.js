@@ -180,4 +180,46 @@ export default {
       2: MissionConstraints.EnemyMechsAreAlwaysAggressive,
     },
   },
+  Flee: {
+    longName: "Flee through enemy territory",
+    missionDescription: "Cross enemy territory and reach the opposing corner",
+    missionSetupSteps: {
+      1: MissionSetupSteps.DiceOutBlips,
+      2: MissionSetupSteps.PlaceBlipsOnMap,
+      3: MissionSetupSteps.PlacePlayerStart,
+    },
+    missionGoals: {
+      1: MissionGoals.ReachCorner,
+    },
+    missionParameters: {
+      1: { parameter: MissionParameters.MaxBlips, value: 3 },
+      2: { parameter: MissionParameters.MinBlips, value: 1 },
+      3: { parameter: MissionParameters.ChanceOfSpawningEnemyMech, value: 25 },
+    },
+    missionConstraints: {
+      1: MissionConstraints.EnemyMechsAreAlwaysAggressive,
+      2: MissionConstraints.PlayerMustSpawnInCorner,
+    },
+  },
+  Decimate: {
+    longName: "Decimate enemy forces",
+    missionDescription: "Strike on enemy blip and decimate all mechs found",
+    missionSetupSteps: {
+      1: MissionSetupSteps.DiceOutBlips,
+      2: MissionSetupSteps.PlaceBlipsOnMap,
+      3: MissionSetupSteps.PlacePlayerStart,
+    },
+    missionGoals: {
+      1: MissionGoals.RevealAtLeastOneBlips,
+      2: MissionGoals.DestroyAllEnemies,
+      3: MissionGoals.RetreatToShip,
+    },
+    missionParameters: {
+      1: { parameter: MissionParameters.MaxBlips, value: 5 },
+      2: { parameter: MissionParameters.MinBlips, value: 3 },
+    },
+    missionConstraints: {
+      1: MissionConstraints.NoConstraints,
+    },
+  },
 };
