@@ -184,8 +184,8 @@ export default {
       2: MissionConstraints.EnemyMechsAreAlwaysAggressive,
     },
   },
-  Flee: {
-    longName: "Flee through enemy territory",
+  DeliverData: {
+    longName: "Deliver data chips through enemy territory",
     missionDescription: "Cross enemy territory and reach the opposing corner",
     missionSetupSteps: {
       1: MissionSetupSteps.DiceOutBlips,
