@@ -47,4 +47,7 @@ export default {
   NumberOfTargetMechs: {
     description: "How many target mechs are present",
   },
+  ChanceOfActivatingBlipEveryRound: {
+    description: "Every round each blip has a chance to activate",
+  },
 };

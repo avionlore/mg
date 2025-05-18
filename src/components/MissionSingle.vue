@@ -40,7 +40,7 @@ const computedMissionDifficulty = computed(() => {
   missionDifficultyAdded += difficultyFromStore.get(props.missionNumber);
 
   if (missionDifficultyAdded <= 5) {
-    missionDifficultyAdded = rollDice(100) + 10;
+    missionDifficultyAdded = rollDice(20) + 10;
   }
 
   return missionDifficultyAdded;

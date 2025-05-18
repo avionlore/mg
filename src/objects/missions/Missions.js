@@ -62,6 +62,10 @@ export default {
       2: { parameter: MissionParameters.MaxMechsOnBlip, value: 4 },
       3: { parameter: MissionParameters.MinBlips, value: 1 },
       4: { parameter: MissionParameters.MinMechsOnBlip, value: 4 },
+      5: {
+        parameter: MissionParameters.ChanceOfActivatingBlipEveryRound,
+        value: 50,
+      },
     },
     missionConstraints: {
       1: MissionConstraints.NoConstraints,
