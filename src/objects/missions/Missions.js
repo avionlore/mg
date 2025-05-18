@@ -88,7 +88,7 @@ export default {
       2: { parameter: MissionParameters.MaxMechsOnBlip, value: 5 },
     },
     missionConstraints: {
-      1: MissionConstraints.NoConstraints,
+      1: MissionConstraints.PossibleMechClassesIncreased,
     },
   },
   BountyHunter: {
@@ -203,6 +203,7 @@ export default {
     missionConstraints: {
       1: MissionConstraints.EnemyMechsAreAlwaysAggressive,
       2: MissionConstraints.PlayerMustSpawnInCorner,
+      3: MissionConstraints.PossibleMechClassesIncreased,
     },
   },
   Decimate: {

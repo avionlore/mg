@@ -4,6 +4,7 @@ import Mechs from "@/objects/Mechs";
 import MissionParameters from "@/objects/missions/MissionParameters";
 import { Blip } from "@/objects/Blip";
 import { Mech } from "@/objects/Mech";
+import MissionConstraints from "@/objects/missions/MissionConstraints";
 
 export function generateBlips(mission, mechClassMaxTier) {
   let maxBlips = getNumberOfBlipsFromMission(mission);
@@ -33,6 +34,18 @@ export function generateBlips(mission, mechClassMaxTier) {
   }
 
   return blips;
+}
+
+function adjustMaxTierOnMissionParameters(mission, mechClassMaxTier) {
+  for (const [, value] of Object.entries(mission.MissionConstraints)) {
+    if (value == MissionConstraints.PossibleMechClassesIncreased) {
+      mechClassMaxTier++;
+    }
+  }
+  if (mechClassMaxTier > 5) {
+    mechClassMaxTier = 5;
+  }
+  return mechClassMaxTier;
 }
 
 function getNumberOfTargetMechs(mission) {

@@ -17,4 +17,7 @@ export default {
   EnemyMechsTargetObjectsFirst: {
     description: "Enemy mechs always target objects first",
   },
+  PossibleMechClassesIncreased: {
+    description: "Mechs from one tier above can spawn",
+  },
 };
