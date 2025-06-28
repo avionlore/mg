@@ -76,6 +76,9 @@ export default {
           <p>{{ mech.mech.mechClass.fullName }}</p>
           <p>{{ mech.position }}</p>
           <p v-if="mech.target == 1">TARGET</p>
+          <p v-if="mech.mech.cardUrl !== ''">
+            <a :href="mech.mech.cardUrl" target="_blank">MECH CARD</a>
+          </p>
         </div>
       </div>
     </div>
