@@ -15,11 +15,15 @@ export default {
         <th>Shortname</th>
         <th>FullName</th>
         <th>MechClass</th>
+        <th>Mech Card</th>
       </tr>
       <tr v-for="mech in Mechs" :key="mech.shortName" :value="mech.mechTier">
         <td>{{ mech.shortName }}</td>
         <td>{{ mech.fullName }}</td>
         <td>{{ mech.mechClass.fullName }}</td>
+        <td>
+          <p v-if="mech.cardUrl !== ''"><a :href="mech.cardUrl">Link</a></p>
+        </td>
       </tr>
     </tbody>
   </table>
