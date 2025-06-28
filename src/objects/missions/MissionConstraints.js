@@ -23,4 +23,8 @@ export default {
   ObjectsAreVisibleFromStart: {
     description: "All objects are visible without activating blips",
   },
+  ObjectsSpawnWithTurrets: {
+    description:
+      "Objects can spawn with PPG Turrets (1W6, 1:0, 2-3:1, 4-5:2, 6:3)",
+  },
 };

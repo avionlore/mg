@@ -1,6 +1,18 @@
 import MechClasses from "./MechClasses";
 
 export default {
+  SmallLaserTurret: {
+    fullName: "Small Laser Turret (S1M1L0/HP2)",
+    shortName: "SLTurret",
+    mechClass: MechClasses[1],
+    cardUrl: "",
+  },
+  MGTurret: {
+    fullName: "MG Turret (S1M0L0/HP2)",
+    shortName: "SLTurret",
+    mechClass: MechClasses[1],
+    cardUrl: "",
+  },
   Wasp: {
     fullName: "Wasp",
     shortName: "Wasp",
@@ -61,6 +73,18 @@ export default {
     mechClass: MechClasses[1],
     cardUrl: "",
   },
+  LargeLaserTurret: {
+    fullName: "Small Laser Turret (S2M2L0/HP2)",
+    shortName: "LLTurret",
+    mechClass: MechClasses[2],
+    cardUrl: "",
+  },
+  LRM10Turret: {
+    fullName: "Long Range Missile 10 Turret (S0M2L2/HP2)",
+    shortName: "LRM10Turret",
+    mechClass: MechClasses[2],
+    cardUrl: "",
+  },
   Wolverine: {
     fullName: "Wolverine",
     shortName: "Wolverine",
@@ -115,6 +139,18 @@ export default {
     mechClass: MechClasses[2],
     cardUrl: "",
   },
+  LRM20Turret: {
+    fullName: "Long Range Missile 20 Turret (S0M3L3/HP2)",
+    shortName: "LRM20Turret",
+    mechClass: MechClasses[3],
+    cardUrl: "",
+  },
+  PPGTurret: {
+    fullName: "PPG Turret (S3M3L3/HP2)",
+    shortName: "PPGTurret",
+    mechClass: MechClasses[3],
+    cardUrl: "",
+  },
   Orion: {
     fullName: "Orion",
     shortName: "Orion",
@@ -167,6 +203,18 @@ export default {
     fullName: "Thunderbolt",
     shortName: "Thunderbolt",
     mechClass: MechClasses[3],
+    cardUrl: "",
+  },
+  DoublePPGTurret: {
+    fullName: "Double PPG Turret (S4M4L4/HP2)",
+    shortName: "DPPGTurret",
+    mechClass: MechClasses[4],
+    cardUrl: "",
+  },
+  LRM40Turret: {
+    fullName: "Long Range Missile 40 Turret (S0M4L4/HP2)",
+    shortName: "LRM40Turret",
+    mechClass: MechClasses[4],
     cardUrl: "",
   },
   Atlas: {

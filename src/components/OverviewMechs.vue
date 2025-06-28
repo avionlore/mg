@@ -22,7 +22,7 @@ export default {
         <td>{{ mech.fullName }}</td>
         <td>{{ mech.mechClass.fullName }}</td>
         <td>
-          <p v-if="mech.cardUrl !== ''"><a :href="mech.cardUrl">Link</a></p>
+          <a v-if="mech.cardUrl !== ''" :href="mech.cardUrl">Link</a>
         </td>
       </tr>
     </tbody>

@@ -229,4 +229,28 @@ export default {
       1: MissionConstraints.NoConstraints,
     },
   },
+  DestroyEnemyDropShip: {
+    longName: "Destroy enemy drop ship",
+    missionDescription: "Destroy enemy drop ship",
+    missionSetupSteps: {
+      1: MissionSetupSteps.DiceOutBlips,
+      2: MissionSetupSteps.PlaceBlipsOnMap,
+      3: MissionSetupSteps.DiceOutObjectNumber,
+      4: MissionSetupSteps.PlaceObjectsOnMap,
+      5: MissionSetupSteps.PlacePlayerStart,
+    },
+    missionGoals: {
+      1: MissionGoals.DestroyObjects,
+      3: MissionGoals.RetreatToShip,
+    },
+    missionParameters: {
+      1: { parameter: MissionParameters.MaxBlips, value: 3 },
+      2: { parameter: MissionParameters.MinBlips, value: 1 },
+      3: { parameter: MissionParameters.MinObjectsOnMap, value: 1 },
+      4: { parameter: MissionParameters.MaxObjectsOnMap, value: 1 },
+    },
+    missionConstraints: {
+      1: MissionConstraints.ObjectsSpawnWithTurrets,
+    },
+  },
 };
