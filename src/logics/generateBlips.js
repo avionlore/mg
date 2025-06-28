@@ -10,6 +10,7 @@ export function generateBlips(mission, mechClassMaxTier) {
   let maxBlips = getNumberOfBlipsFromMission(mission);
   let mechCount = getNumberOfMechsForMission(mission);
   let numberOfTargetMechs = getNumberOfTargetMechs(mission);
+  let numberOfObjectsOnMap = getNumberOfObjectsOnMap(mission);
 
   let blips = [];
   mechClassMaxTier = adjustMaxTierOnMissionParameters(
@@ -34,6 +35,10 @@ export function generateBlips(mission, mechClassMaxTier) {
       mechClassMaxTier,
       numberOfTargetMechs
     );
+    if (i <= numberOfObjectsOnMap) {
+      blip.hasObject = true;
+    }
+    blip.showAllObjectsFromStart = showAllObjectsOnMap(mission);
     blips.push(blip);
   }
 
@@ -52,6 +57,15 @@ function adjustMaxTierOnMissionParameters(mission, mechClassMaxTier) {
   return mechClassMaxTier;
 }
 
+function showAllObjectsOnMap(mission) {
+  for (const [, value] of Object.entries(mission.missionConstraints)) {
+    if (value == MissionConstraints.ObjectsAreVisibleFromStart) {
+      return true;
+    }
+  }
+  return false;
+}
+
 function getNumberOfTargetMechs(mission) {
   for (const [, value] of Object.entries(mission.missionParameters)) {
     if (value.parameter == MissionParameters.NumberOfTargetMechs) {
@@ -59,6 +73,22 @@ function getNumberOfTargetMechs(mission) {
     }
   }
   return 0;
+}
+
+function getNumberOfObjectsOnMap(mission) {
+  let minValue = 0;
+  let maxValue = 0;
+  let returnValue = 0;
+  for (const [, value] of Object.entries(mission.missionParameters)) {
+    if (value.parameter == MissionParameters.MinObjectsOnMap) {
+      minValue = value.value;
+    }
+    if (value.parameter == MissionParameters.MaxObjectsOnMap) {
+      maxValue = value.value;
+    }
+  }
+  returnValue = rollDiceRange(minValue, maxValue);
+  return returnValue;
 }
 
 function getNumberOfMechsForMission(mission) {

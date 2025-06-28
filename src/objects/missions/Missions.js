@@ -43,7 +43,7 @@ export default {
       4: { parameter: MissionParameters.MaxObjectsOnMap, value: 2 },
     },
     missionConstraints: {
-      1: MissionConstraints.NoConstraints,
+      1: MissionConstraints.ObjectsAreVisibleFromStart,
     },
   },
   Duel: {
@@ -157,6 +157,7 @@ export default {
     missionConstraints: {
       1: MissionConstraints.EnemyMechsTargetObjectsFirst,
       2: MissionConstraints.EnemyMechsAreAlwaysAggressive,
+      3: MissionConstraints.ObjectsAreVisibleFromStart,
     },
   },
   Capture: {
@@ -182,6 +183,7 @@ export default {
     missionConstraints: {
       1: MissionConstraints.EnemyMechsTargetObjectsFirst,
       2: MissionConstraints.EnemyMechsAreAlwaysAggressive,
+      3: MissionConstraints.ObjectsAreVisibleFromStart,
     },
   },
   DeliverData: {

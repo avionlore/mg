@@ -59,12 +59,18 @@ export default {
     <p>Max Mech Class ({{ highestPossibleMechClassObject.fullName }})</p>
     <p>Added Difficulty: {{ computedDifficultyForAllBlips }}</p>
     <div class="blip" v-for="blip in computedBlips" :key="blip">
+      <p v-if="blip.hasObject == 1 && blip.showAllObjectsFromStart == true">
+        OBJECT
+      </p>
       <button @click="showBlip(blip.blipNumber)">
         Show Blip #{{ blip.blipNumber }}
       </button>
       <GridStart :positionNumber="blip.blipPosition" />
       <div v-show="chosenBlipNumber == blip.blipNumber">
         <p>#{{ blip.blipNumber }}</p>
+        <p v-if="blip.hasObject == 1 && blip.showAllObjectsFromStart == false">
+          OBJECT
+        </p>
         <div class="mech_blip" v-for="mech in blip.mechsInBlip" :key="mech">
           <p>{{ mech.mech.fullName }}</p>
           <p>{{ mech.mech.mechClass.fullName }}</p>

@@ -20,4 +20,7 @@ export default {
   PossibleMechClassesIncreased: {
     description: "Mechs from one tier above can spawn",
   },
+  ObjectsAreVisibleFromStart: {
+    description: "All objects are visible without activating blips",
+  },
 };
