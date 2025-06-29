@@ -1,9 +1,10 @@
 <template>
-  <h1>Missions Generator v0.7.3 (2025-06-28)</h1>
+  <h1>Missions Generator v0.7.4 (2025-06-28)</h1>
   <div>
     <button @click="showPageNumber = 1">Show Generator</button>
     <button @click="showPageNumber = 2">Show Mech Overview</button>
     <button @click="showPageNumber = 3">Show Mission Overview</button>
+    <button @click="showPageNumber = 4">Show Mech Spawner</button>
   </div>
   <span v-if="showPageNumber == 1">
     <form v-on:submit.prevent="generateMissions">
@@ -21,6 +22,7 @@
   </span>
   <span v-if="showPageNumber == 2"><OverviewMechs /> </span>
   <span v-if="showPageNumber == 3"><OverviewMissions /> </span>
+  <span v-if="showPageNumber == 4"><MechSpawner /> </span>
 </template>
 <script>
 import { rollDice } from "../logics/rollDice.js";
@@ -28,6 +30,7 @@ import MissionSingle from "./MissionSingle.vue";
 import MechClassSelect from "./MechClassSelect.vue";
 import OverviewMechs from "./OverviewMechs.vue";
 import OverviewMissions from "./OverviewMissions.vue";
+import MechSpawner from "./MechSpawner.vue";
 import { ref } from "vue";
 
 const componentKey = ref(0);
@@ -40,6 +43,7 @@ export default {
     MechClassSelect,
     OverviewMechs,
     OverviewMissions,
+    MechSpawner,
   },
   data() {
     return {

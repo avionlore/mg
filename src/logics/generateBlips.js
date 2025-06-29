@@ -33,7 +33,8 @@ export function generateBlips(mission, mechClassMaxTier) {
       blip.mechTier,
       mechCount,
       mechClassMaxTier,
-      numberOfTargetMechs
+      numberOfTargetMechs,
+      false
     );
     if (i <= numberOfObjectsOnMap) {
       blip.hasObject = true;
@@ -133,7 +134,13 @@ function getMechClassesForMission(mechClassMaxTier) {
   return chosenMechClasses;
 }
 
-function getMechs(mechClass, mechCount, mechClassMaxTier, numberOfTargetMechs) {
+export function getMechs(
+  mechClass,
+  mechCount,
+  mechClassMaxTier,
+  numberOfTargetMechs,
+  forceClass
+) {
   let possibleMechs = [];
 
   const mechs = Mechs;
@@ -159,7 +166,7 @@ function getMechs(mechClass, mechCount, mechClassMaxTier, numberOfTargetMechs) {
 
   let chosenMechs = [];
   for (let i = 0; i < mechCount; i++) {
-    if (rollDice(2) == 1) {
+    if (rollDice(2) == 1 || forceClass == true) {
       chosenMechs.push(
         possibleMechsFromHighestTier[
           Math.floor(Math.random() * possibleMechsFromHighestTier.length)
