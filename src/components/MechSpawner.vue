@@ -1,6 +1,10 @@
 <template>
   <h2>Mech Spawner</h2>
   <MechClassSelect @emit-selected-mission-class="onSelectMissionClass" />
+  <p>
+    Only from selected Mech Class:
+    <input type="checkbox" id="checkbox" @click="onChecked" />
+  </p>
   <div v-if="showMech == 1" :key="componentKeyForReRendering">
     <p>{{ chosenMechs[0].mech.fullName }}</p>
     <p>{{ chosenMechs[0].mech.mechClass.fullName }}</p>
@@ -28,6 +32,7 @@ export default {
       componentKeyForReRendering: 0,
       highestPossibleMechClassObject: null,
       chosenMechs: null,
+      checked: false,
     };
   },
   methods: {
@@ -45,9 +50,15 @@ export default {
         1,
         this.selectedMissionClass,
         0,
-        true
+        this.checked
       );
-      console.log(this.chosenMechs);
+    },
+    onChecked() {
+      console.log("yeah");
+      componentKey.value += 1;
+      this.componentKeyForReRendering = componentKey.value;
+      if (this.checked == false) this.checked = true;
+      else this.checked = false;
     },
   },
 };
