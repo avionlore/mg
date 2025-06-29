@@ -27,4 +27,12 @@ export default {
     description:
       "Objects can spawn with PPG Turrets (1W6, 1:0, 2-3:1, 4-5:2, 6:3)",
   },
+  ObjectsAreArtillery: {
+    description:
+      "Objects are Artillery with 4HP, Bombardment for friendly and neutral mechs is in effect.",
+  },
+  ObjectsAreFriendlyArtillery: {
+    description:
+      "Objects are Artillery with 4HP, Bombardment for enemy and neutral mechs is in effect.",
+  },
 };

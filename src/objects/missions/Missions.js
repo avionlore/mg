@@ -253,4 +253,53 @@ export default {
       1: MissionConstraints.ObjectsSpawnWithTurrets,
     },
   },
+  DestroyArtillery: {
+    longName: "Destroy Artillery",
+    missionDescription: "Go to each artillery and destroy all objects",
+    missionSetupSteps: {
+      1: MissionSetupSteps.DiceOutBlips,
+      2: MissionSetupSteps.PlaceBlipsOnMap,
+      3: MissionSetupSteps.PlacePlayerStart,
+    },
+    missionGoals: {
+      1: MissionGoals.DestroyObjects,
+      2: MissionGoals.RetreatToShip,
+    },
+    missionParameters: {
+      1: { parameter: MissionParameters.MaxBlips, value: 5 },
+      2: { parameter: MissionParameters.MaxMechsOnBlip, value: 3 },
+      3: { parameter: MissionParameters.MinObjectsOnMap, value: 1 },
+      4: { parameter: MissionParameters.MaxObjectsOnMap, value: 3 },
+    },
+    missionConstraints: {
+      1: MissionConstraints.ObjectsAreVisibleFromStart,
+      2: MissionConstraints.ObjectsAreArtillery,
+    },
+  },
+  DefendArtillery: {
+    longName: "Defense Mission (Artillery)",
+    missionDescription: "Defend artillery for a certain amount of time",
+    missionSetupSteps: {
+      1: MissionSetupSteps.DiceOutObjectNumber,
+      2: MissionSetupSteps.PlaceObjectsOnMap,
+      3: MissionSetupSteps.PlacePlayerStart,
+    },
+    missionGoals: {
+      1: MissionGoals.DefendObjects,
+      2: MissionGoals.RetreatToShip,
+    },
+    missionParameters: {
+      1: { parameter: MissionParameters.MaxObjectsOnMap, value: 4 },
+      2: { parameter: MissionParameters.MinObjectsOnMap, value: 1 },
+      3: { parameter: MissionParameters.DamagePerShotOnObject, value: 25 },
+      4: { parameter: MissionParameters.NumberOfRoundsToSurvive, value: 10 },
+      5: { parameter: MissionParameters.ChanceOfSpawningEnemyMech, value: 50 },
+    },
+    missionConstraints: {
+      1: MissionConstraints.EnemyMechsTargetObjectsFirst,
+      2: MissionConstraints.EnemyMechsAreAlwaysAggressive,
+      3: MissionConstraints.ObjectsAreVisibleFromStart,
+      4: MissionConstraints.ObjectsAreFriendlyArtillery,
+    },
+  },
 };
