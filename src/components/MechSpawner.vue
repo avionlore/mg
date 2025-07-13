@@ -8,12 +8,24 @@
   <div v-if="showMech == 1" :key="componentKeyForReRendering">
     <p>{{ chosenMechs[0].mech.fullName }}</p>
     <p>{{ chosenMechs[0].mech.mechClass.fullName }}</p>
-    <p>{{ chosenMechs[0].mech.cardUrl }}</p>
+    <p>{{ chosenMechs[0].position }}</p>
+    <p><GridStart :positionNumber="rollDiceValue" /></p>
+    <p>
+      <a
+        v-if="chosenMechs[0].mech.cardUrl !== ''"
+        :href="chosenMechs[0].mech.cardUrl"
+        >Link</a
+      >
+    </p>
   </div>
 </template>
+<script setup></script>
 <script>
 import MechClassSelect from "./MechClassSelect.vue";
 import MechClasses from "@/objects/MechClasses";
+import GridStart from "./GridStart.vue";
+import { rollDice } from "@/logics/rollDice";
+
 import { getMechs } from "@/logics/generateBlips.js";
 import { ref } from "vue";
 
@@ -24,6 +36,7 @@ export default {
   name: "MechSpawner",
   components: {
     MechClassSelect,
+    GridStart,
   },
   data() {
     return {
@@ -33,6 +46,7 @@ export default {
       highestPossibleMechClassObject: null,
       chosenMechs: null,
       checked: false,
+      rollDiceValue: 0,
     };
   },
   methods: {
@@ -52,9 +66,9 @@ export default {
         0,
         this.checked
       );
+      this.rollDiceValue = rollDice(9);
     },
     onChecked() {
-      console.log("yeah");
       componentKey.value += 1;
       this.componentKeyForReRendering = componentKey.value;
       if (this.checked == false) this.checked = true;
