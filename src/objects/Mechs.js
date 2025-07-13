@@ -2,14 +2,14 @@ import MechClasses from "./MechClasses";
 
 export default {
   SmallLaserTurret: {
-    fullName: "Small Laser Turret (S1M1L0/HP2)",
+    fullName: "Small Laser Turret (S1M1L0/HP1)",
     shortName: "SLTurret",
     mechClass: MechClasses[1],
     cardUrl: "",
   },
   MGTurret: {
-    fullName: "MG Turret (S1M0L0/HP2)",
-    shortName: "SLTurret",
+    fullName: "MG Turret (S1M0L0/HP1)",
+    shortName: "MGTurret",
     mechClass: MechClasses[1],
     cardUrl: "",
   },
@@ -74,13 +74,13 @@ export default {
     cardUrl: "",
   },
   LargeLaserTurret: {
-    fullName: "Small Laser Turret (S2M2L0/HP2)",
+    fullName: "Large Laser Turret (S2M2L0/HP1)",
     shortName: "LLTurret",
     mechClass: MechClasses[2],
     cardUrl: "",
   },
   LRM10Turret: {
-    fullName: "Long Range Missile 10 Turret (S0M2L2/HP2)",
+    fullName: "Long Range Missile 10 Turret (S0M1L2/HP2)",
     shortName: "LRM10Turret",
     mechClass: MechClasses[2],
     cardUrl: "",
@@ -140,14 +140,14 @@ export default {
     cardUrl: "",
   },
   LRM20Turret: {
-    fullName: "Long Range Missile 20 Turret (S0M3L3/HP2)",
+    fullName: "Long Range Missile 20 Turret (S0M2L3/HP2)",
     shortName: "LRM20Turret",
     mechClass: MechClasses[3],
     cardUrl: "",
   },
-  PPGTurret: {
-    fullName: "PPG Turret (S3M3L3/HP2)",
-    shortName: "PPGTurret",
+  PPCTurret: {
+    fullName: "PPC Turret (S3M3L3/HP2)",
+    shortName: "PPCTurret",
     mechClass: MechClasses[3],
     cardUrl: "",
   },
@@ -205,14 +205,14 @@ export default {
     mechClass: MechClasses[3],
     cardUrl: "",
   },
-  DoublePPGTurret: {
-    fullName: "Double PPG Turret (S4M4L4/HP2)",
-    shortName: "DPPGTurret",
+  DoublePPCTurret: {
+    fullName: "Double PPC Turret (S4M4L4/HP2)",
+    shortName: "DPPCTurret",
     mechClass: MechClasses[4],
     cardUrl: "",
   },
   LRM40Turret: {
-    fullName: "Long Range Missile 40 Turret (S0M4L4/HP2)",
+    fullName: "Long Range Missile 40 Turret (S0M3L4/HP2)",
     shortName: "LRM40Turret",
     mechClass: MechClasses[4],
     cardUrl: "",
