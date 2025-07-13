@@ -1,10 +1,10 @@
 <template>
   <h1>Missions Generator v0.7.5 (2025-07-13)</h1>
   <div>
-    <button @click="showPageNumber = 1">Show Generator</button>
-    <button @click="showPageNumber = 2">Show Mech Overview</button>
-    <button @click="showPageNumber = 3">Show Mission Overview</button>
-    <button @click="showPageNumber = 4">Show Mech Spawner</button>
+    <button @click="showPageNumber = 1">Mission Generator</button>
+    <button @click="showPageNumber = 2">Mech Overview</button>
+    <button @click="showPageNumber = 3">Mission Overview</button>
+    <button @click="showPageNumber = 4">Mech Spawner</button>
   </div>
   <span v-if="showPageNumber == 1">
     <form v-on:submit.prevent="generateMissions">

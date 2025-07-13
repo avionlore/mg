@@ -3,15 +3,14 @@
 </template>
 
 <script>
-import MissionsGenerator from './components/MissionsGenerator.vue'
-
+import MissionsGenerator from "./components/MissionsGenerator.vue";
 
 export default {
-  name: 'App',
+  name: "App",
   components: {
-    MissionsGenerator
-  }
-}
+    MissionsGenerator,
+  },
+};
 </script>
 
 <style>
@@ -19,10 +18,9 @@ export default {
   font-family: Avenir, Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-
 }
 body {
-  background-image: url('./assets/background.webp');
+  background-image: url("./assets/background.webp");
   background-repeat: no-repeat; /* No repeating of the image */
   background-size: auto; /* Cover the entire container */
   background-position: top; /* Center the background image */
@@ -32,16 +30,17 @@ body {
   color: aliceblue;
 }
 button {
-    padding: 10px 20px;
-    font-size: 16px;
-    cursor: pointer;
-    background-color: #007bff;
-    color: #fff;
-    border: none;
-    border-radius: 5px;
-    margin-bottom: 20px;
+  padding: 10px 20px;
+  font-size: 16px;
+  cursor: pointer;
+  background-color: #007bff;
+  color: #fff;
+  border: none;
+  border-radius: 5px;
+  margin-bottom: 20px;
+  margin-right: 15px;
 }
 button:hover {
-    background-color: #0056b3;
+  background-color: #0056b3;
 }
 </style>
