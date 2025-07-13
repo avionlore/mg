@@ -241,16 +241,17 @@ export default {
     },
     missionGoals: {
       1: MissionGoals.DestroyObjects,
-      3: MissionGoals.RetreatToShip,
+      2: MissionGoals.RetreatToShip,
     },
     missionParameters: {
       1: { parameter: MissionParameters.MaxBlips, value: 3 },
       2: { parameter: MissionParameters.MinBlips, value: 1 },
       3: { parameter: MissionParameters.MinObjectsOnMap, value: 1 },
       4: { parameter: MissionParameters.MaxObjectsOnMap, value: 1 },
+      5: { parameter: MissionParameters.MaxMechsOnBlip, value: 3 },
     },
     missionConstraints: {
-      1: MissionConstraints.ObjectsSpawnWithTurrets,
+      1: MissionConstraints.ObjectsSpawnWithPPCTurrets,
     },
   },
   DestroyArtillery: {
@@ -294,12 +295,14 @@ export default {
       3: { parameter: MissionParameters.DamagePerShotOnObject, value: 25 },
       4: { parameter: MissionParameters.NumberOfRoundsToSurvive, value: 10 },
       5: { parameter: MissionParameters.ChanceOfSpawningEnemyMech, value: 50 },
+      6: { parameter: MissionParameters.MaxMechsOnBlip, value: 1 },
     },
     missionConstraints: {
       1: MissionConstraints.EnemyMechsTargetObjectsFirst,
       2: MissionConstraints.EnemyMechsAreAlwaysAggressive,
       3: MissionConstraints.ObjectsAreVisibleFromStart,
       4: MissionConstraints.ObjectsAreFriendlyArtillery,
+      5: MissionConstraints.MechsAtObjectsAreFriendlies,
     },
   },
 };

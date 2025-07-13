@@ -23,9 +23,9 @@ export default {
   ObjectsAreVisibleFromStart: {
     description: "All objects are visible without activating blips",
   },
-  ObjectsSpawnWithTurrets: {
+  ObjectsSpawnWithPPCTurrets: {
     description:
-      "Objects can spawn with PPG Turrets (1W6, 1:0, 2-3:1, 4-5:2, 6:3)",
+      "Objects can spawn with PPC Turrets (1W6, 1:0, 2-3:1, 4-5:2, 6:3)",
   },
   ObjectsAreArtillery: {
     description:
@@ -34,5 +34,9 @@ export default {
   ObjectsAreFriendlyArtillery: {
     description:
       "Objects are Artillery with 4HP, Bombardment for enemy and neutral mechs is in effect.",
+  },
+  MechsAtObjectsAreFriendlies: {
+    description:
+      "Mechs at objects are friendlies (blue), always aggressive against enemies and neutrals.",
   },
 };
