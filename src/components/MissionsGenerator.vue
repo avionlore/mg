@@ -1,5 +1,5 @@
 <template>
-  <h1>Missions Generator v0.7.5 (2025-07-13)</h1>
+  <h1>Missions Generator v0.7.6 (2025-07-14)</h1>
   <div>
     <button @click="showPageNumber = 1">Mission Generator</button>
     <button @click="showPageNumber = 2">Mech Overview</button>
