@@ -9,7 +9,8 @@ import MissionConstraints from "@/objects/missions/MissionConstraints";
 export function generateBlips(mission, mechClassMaxTier) {
   let maxBlips = getNumberOfBlipsFromMission(mission);
   let mechCount = getNumberOfMechsForMission(mission);
-  let numberOfTargetMechs = getNumberOfTargetMechs(mission);
+  let numberOfTargetMechsTotal = getNumberOfTargetMechs(mission);
+  let numberOfTargetMechsAlreadyPresent = 0;
   let numberOfObjectsOnMap = getNumberOfObjectsOnMap(mission);
 
   let blips = [];
@@ -22,6 +23,8 @@ export function generateBlips(mission, mechClassMaxTier) {
   let numberOfBlips = rollDice(maxBlips);
 
   for (let i = 1; i <= numberOfBlips; i++) {
+    let numberOfTargetMechsForBlip =
+      numberOfTargetMechsTotal - numberOfTargetMechsAlreadyPresent;
     let blip = new Blip();
     blip.blipNumber = i;
     blip.blipPosition = rollDice(9);
@@ -33,9 +36,13 @@ export function generateBlips(mission, mechClassMaxTier) {
       blip.mechTier,
       mechCount,
       mechClassMaxTier,
-      numberOfTargetMechs,
+      numberOfTargetMechsForBlip,
       false
     );
+    numberOfTargetMechsAlreadyPresent += getNumberOfTargetMechsAlreadyPresent(
+      blip.mechsInBlip
+    );
+
     if (i <= numberOfObjectsOnMap) {
       blip.hasObject = true;
     }
@@ -74,6 +81,16 @@ function getNumberOfTargetMechs(mission) {
     }
   }
   return 0;
+}
+
+function getNumberOfTargetMechsAlreadyPresent(chosenMechs) {
+  let numberOfTargetMechs = 0;
+  for (const [, mech] of chosenMechs.entries()) {
+    if (mech.target == 1) {
+      numberOfTargetMechs++;
+    }
+  }
+  return numberOfTargetMechs;
 }
 
 function getNumberOfObjectsOnMap(mission) {
