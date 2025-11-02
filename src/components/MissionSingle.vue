@@ -47,6 +47,12 @@ const computedMissionDifficulty = computed(() => {
     missionDifficultyAdded = rollDice(20) + 10;
   }
 
+  missionDifficultyAdded = Math.floor(missionDifficultyAdded / 10);
+
+  if (missionDifficultyAdded <= 0) {
+    missionDifficultyAdded = 1;
+  }
+
   return missionDifficultyAdded;
 });
 </script>
