@@ -22,7 +22,10 @@ const computedChosenMission = computed(() => {
 });
 
 const computedMissionMap = computed(() => {
-  return Maps.map[Math.floor(Math.random() * Maps.map.length)].mapName;
+  let mapSide = " (" + rollDice(2) + ")";
+  return (
+    Maps.map[Math.floor(Math.random() * Maps.map.length)].mapName + mapSide
+  );
 });
 
 const computedMapParameter = computed(() => {
