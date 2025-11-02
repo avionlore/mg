@@ -22,12 +22,17 @@ export function generateBlips(mission, mechClassMaxTier) {
 
   let numberOfBlips = rollDice(maxBlips);
 
+  let blipPositionsAlreadyTaken = [];
+
   for (let i = 1; i <= numberOfBlips; i++) {
     let numberOfTargetMechsForBlip =
       numberOfTargetMechsTotal - numberOfTargetMechsAlreadyPresent;
     let blip = new Blip();
     blip.blipNumber = i;
-    blip.blipPosition = rollDice(9);
+    blip.blipPosition = setBlipPosition(blipPositionsAlreadyTaken);
+
+    blipPositionsAlreadyTaken.push(blip.blipPosition);
+
     blip.mechTier =
       mechClassesForMission[
         Math.floor(Math.random() * mechClassesForMission.length)
@@ -51,6 +56,15 @@ export function generateBlips(mission, mechClassMaxTier) {
   }
 
   return blips;
+}
+
+function setBlipPosition(blipPositionsAlreadyTaken) {
+  for (let i = 0; i < 99; i++) {
+    let newPosition = rollDice(9);
+    if (!blipPositionsAlreadyTaken.includes(newPosition)) {
+      return newPosition;
+    }
+  }
 }
 
 function adjustMaxTierOnMissionParameters(mission, mechClassMaxTier) {

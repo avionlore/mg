@@ -17,6 +17,7 @@ const difficultyFromStore = useDifficultyStore();
 const computedChosenMission = computed(() => {
   let missionKeys = Object.keys(Missions);
 
+  //return Missions.Capture;
   return Missions[missionKeys[Math.floor(Math.random() * missionKeys.length)]];
 });
 
