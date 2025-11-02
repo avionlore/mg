@@ -8,6 +8,9 @@ export default {
   EnemyMechsAreAlwaysAggressive: {
     description: "Enemy mechs are always aggressive",
   },
+  EnemyMechsAreAggressiveWhileCapturing: {
+    description: "Enemy mechs are aggressive while capturing an object.",
+  },
   PirateCanSpawn: {
     description: "Every round (1:6) a pirate from current mech pool can spawn",
   },
@@ -38,5 +41,9 @@ export default {
   MechsAtObjectsAreFriendlies: {
     description:
       "Mechs at objects are friendlies (blue), always aggressive against enemies and neutrals.",
+  },
+  EnemyMechsInObjectRangePreventCapture: {
+    description:
+      "Capturing is paused while enemy mechs are in range to the object.",
   },
 };

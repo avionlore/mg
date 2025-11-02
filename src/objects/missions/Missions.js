@@ -160,9 +160,33 @@ export default {
       3: MissionConstraints.ObjectsAreVisibleFromStart,
     },
   },
-  Capture: {
-    longName: "Capture Object Mission",
-    missionDescription: "Capture object for a certain amount of time",
+  Scanner: {
+    longName: "Scan Objects Mission",
+    missionDescription: "Scan all objects for a certain amount of time",
+    missionSetupSteps: {
+      1: MissionSetupSteps.DiceOutObjectNumber,
+      2: MissionSetupSteps.PlaceObjectsOnMap,
+      3: MissionSetupSteps.PlacePlayerStart,
+    },
+    missionGoals: {
+      1: MissionGoals.ScanAllObjects,
+      2: MissionGoals.RetreatToShip,
+    },
+    missionParameters: {
+      1: { parameter: MissionParameters.MaxObjectsOnMap, value: 3 },
+      2: { parameter: MissionParameters.MinObjectsOnMap, value: 1 },
+      3: { parameter: MissionParameters.ChanceOfSpawningEnemyMech, value: 33 },
+      4: { parameter: MissionParameters.RoundsInRangeToCapture, value: 3 },
+      5: { parameter: MissionParameters.RangeToCapture, value: 2 },
+    },
+    missionConstraints: {
+      1: MissionConstraints.EnemyMechsAreAlwaysAggressive,
+      2: MissionConstraints.ObjectsAreVisibleFromStart,
+    },
+  },
+  CaptureAll: {
+    longName: "Capture All Objects Mission",
+    missionDescription: "Capture all objects",
     missionSetupSteps: {
       1: MissionSetupSteps.DiceOutObjectNumber,
       2: MissionSetupSteps.PlaceObjectsOnMap,
@@ -175,15 +199,40 @@ export default {
     missionParameters: {
       1: { parameter: MissionParameters.MaxObjectsOnMap, value: 3 },
       2: { parameter: MissionParameters.MinObjectsOnMap, value: 1 },
-      3: { parameter: MissionParameters.DamagePerShotOnObject, value: 25 },
-      4: { parameter: MissionParameters.ChanceOfSpawningEnemyMech, value: 33 },
-      5: { parameter: MissionParameters.RoundsInRangeToCapture, value: 3 },
-      6: { parameter: MissionParameters.RangeToCapture, value: 2 },
+      3: { parameter: MissionParameters.ChanceOfSpawningEnemyMech, value: 33 },
+      4: { parameter: MissionParameters.RoundsInRangeToCapture, value: 3 },
+      5: { parameter: MissionParameters.RangeToCapture, value: 2 },
     },
     missionConstraints: {
-      1: MissionConstraints.EnemyMechsTargetObjectsFirst,
-      2: MissionConstraints.EnemyMechsAreAlwaysAggressive,
-      3: MissionConstraints.ObjectsAreVisibleFromStart,
+      1: MissionConstraints.EnemyMechsAreAlwaysAggressive,
+      2: MissionConstraints.ObjectsAreVisibleFromStart,
+      3: MissionConstraints.EnemyMechsInObjectRangePreventCapture,
+    },
+  },
+  CaptureSecretObject: {
+    longName: "Discover and Capture one Object Mission",
+    missionDescription: "Discover and Capture one object",
+    missionSetupSteps: {
+      1: MissionSetupSteps.DiceOutObjectNumber,
+      2: MissionSetupSteps.PlaceObjectsOnMap,
+      3: MissionSetupSteps.PlacePlayerStart,
+    },
+    missionGoals: {
+      1: MissionGoals.CaptureOneObject,
+      2: MissionGoals.RetreatToShip,
+    },
+    missionParameters: {
+      1: { parameter: MissionParameters.MaxObjectsOnMap, value: 5 },
+      2: { parameter: MissionParameters.MinObjectsOnMap, value: 1 },
+      3: { parameter: MissionParameters.ChanceOfSpawningEnemyMech, value: 33 },
+      4: { parameter: MissionParameters.RoundsInRangeToCapture, value: 3 },
+      5: { parameter: MissionParameters.RangeToCapture, value: 2 },
+      6: { parameter: MissionParameters.MinBlips, value: 3 },
+      7: { parameter: MissionParameters.MaxBlips, value: 5 },
+    },
+    missionConstraints: {
+      1: MissionConstraints.EnemyMechsAreAggressiveWhileCapturing,
+      2: MissionConstraints.EnemyMechsInObjectRangePreventCapture,
     },
   },
   DeliverData: {

@@ -29,4 +29,10 @@ export default {
   CaptureAllObjects: {
     description: "Capture all objects",
   },
+  CaptureOneObject: {
+    description: "Capture at least one object",
+  },
+  ScanAllObjects: {
+    description: "Scan all objects",
+  },
 };
